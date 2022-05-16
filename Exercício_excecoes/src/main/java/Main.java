@@ -1,8 +1,6 @@
-import java.util.HashSet;
-import java.util.Set;
-
 public class Main
 {
+
     public static void main(String[] args) {
         Cliente c1 = new Cliente("Pedro",123456789);
         Cliente c2 = new Cliente("Chris",12345698);
