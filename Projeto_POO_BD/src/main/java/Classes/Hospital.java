@@ -19,13 +19,11 @@ public class Hospital {
 
 
     //Funções para adicionar
-
     public void addMedicos(Medico medico) {
         medicos.add(medico);
     }
-
     public void addPacientes(Paciente paciente) {
-        this.pacientes.add(paciente);
+        pacientes.add(paciente);
     }
     public void marcaConsulta(Consulta consulta){
         consultas.add(consulta);

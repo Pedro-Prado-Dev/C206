@@ -35,14 +35,14 @@ public class Main {
                     m.setNome(sc.nextLine());
                     System.out.println("Digite a idade do doutor " + m.getNome() + " :");
                     m.setIdade(sc.nextInt());
-                    if (m.getIdade() < 22 && m.getIdade() > 75) {
+                    if (m.getIdade() < 22 || m.getIdade() > 75) {
                         System.out.println("Idade Invalida");
                         break;
                     }
+                    sc.nextLine();
                     System.out.println("Digite o cpf do doutor " + m.getNome() + " :");
                     m.setCpf(sc.nextLine());
                     System.out.println("Digite a especializacao do doutor " + m.getNome() + " :");
-                    sc.nextLine();
                     m.setEspecializacao(sc.nextLine());
                     System.out.println("Digite o CRM do doutor " + m.getNome() + " :");
                     m.setCrm(sc.nextLine());
@@ -58,7 +58,7 @@ public class Main {
                     System.out.println("Digite a idade do paciente " + p.getNome() + " :");
                     p.setIdade(sc.nextInt());
                     sc.nextLine();
-                    if (p.getIdade() < 0 && p.getIdade() > 110) {
+                    if (p.getIdade() < 0 || p.getIdade() > 110) {
                         System.out.println("Idade Invalida");
                         break;
                     } else {
