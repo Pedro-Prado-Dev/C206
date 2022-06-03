@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Classes.*;
+import DAO.CirurgiaDAO;
+import DAO.ConsultaDAO;
+import DAO.MedicoDAO;
+import DAO.PacienteDAO;
 import Exceptions.*;
 
 
 public class Main {
-    public static void main(String[] args) throws PacienteNaoEncontrado, ConsultaIndisponivel {
+    public static void main(String[] args)  {
         Scanner sc = new Scanner(System.in);
         Hospital hospital = new Hospital("Samuel Libaneo");
         boolean flag = true;
@@ -30,6 +34,7 @@ public class Main {
             switch (op) {
                 case 1:
                     sc.nextLine();
+                    MedicoDAO iDAO = new MedicoDAO();
                     Medico m = new Medico();
                     System.out.println("Digite o nome do médico: ");
                     m.setNome(sc.nextLine());
@@ -47,11 +52,13 @@ public class Main {
                     System.out.println("Digite o CRM do doutor " + m.getNome() + " :");
                     m.setCrm(sc.nextLine());
                     hospital.addMedicos(m);
+                    iDAO.inserirMedico(m);
                     System.out.println("Cadastro realizado" + "\n");
                     break;
 
                 case 2:
                     sc.nextLine();
+                    PacienteDAO eDAO = new PacienteDAO();
                     Paciente p = new Paciente();
                     System.out.println("Digite o nome do paciente: ");
                     p.setNome(sc.nextLine());
@@ -65,6 +72,7 @@ public class Main {
                         System.out.println("Digite o cpf do paciente " + p.getNome() + " :");
                         p.setCpf(sc.nextLine());
                         hospital.addPacientes(p);
+                        eDAO.inserirPaciente(p);
                         System.out.println("Cadastro realizado" + "\n");
                     }
                     break;
@@ -74,6 +82,7 @@ public class Main {
                     sc.nextLine();
                     Medico medico = new Medico();
                     Paciente paciente = new Paciente();
+                    ConsultaDAO aDAO = new ConsultaDAO();
                     Consulta consulta = new Consulta();
 
                     System.out.println("Digite o cpf do Paciente para Marcar uma consulta");
@@ -102,8 +111,9 @@ public class Main {
                         System.out.println(e);
                         break;
                     }
-                    consulta.setData(aux1);
+                    consulta.setDatad(aux1);
                     hospital.marcaConsulta(consulta);
+                    aDAO.inserirConsulta(consulta);
                     break;
 
                 case 4:
@@ -111,6 +121,7 @@ public class Main {
                     sc.nextLine();
                     Medico m2 = new Medico();
                     Paciente p2 = new Paciente();
+                    CirurgiaDAO uDAO = new CirurgiaDAO();
                     Cirurgia cirurgia = new Cirurgia();
                     System.out.println("Digite o cpf do Paciente para Marcar uma consulta");
                     aux2 = sc.nextLine();
@@ -138,8 +149,9 @@ public class Main {
                         System.out.println(e);
                         break;
                     }
-                    cirurgia.setData(aux2);
+                    cirurgia.setDatad(aux2);
                     hospital.marcaCirurgia(cirurgia);
+                    uDAO.inserirCirurgia(cirurgia);
                     break;
 
                 case 5:

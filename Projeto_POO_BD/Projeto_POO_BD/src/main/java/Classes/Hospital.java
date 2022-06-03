@@ -19,11 +19,13 @@ public class Hospital {
 
 
     //Funções para adicionar
+
     public void addMedicos(Medico medico) {
         medicos.add(medico);
     }
+
     public void addPacientes(Paciente paciente) {
-        pacientes.add(paciente);
+        this.pacientes.add(paciente);
     }
     public void marcaConsulta(Consulta consulta){
         consultas.add(consulta);
@@ -75,7 +77,7 @@ public class Hospital {
     public Medico procuraPorCRM(String crm) throws MedicoNaoEncontrado {
         Medico m1 = null;
         for (int i = 0; i < medicos.size(); i++) {
-            if (medicos.get(i).getCpf().equals(crm)) {
+            if (medicos.get(i).getCrm().equals(crm)) {
                 m1 = medicos.get(i);
                 System.out.println("ACHOU");
             }
@@ -91,7 +93,7 @@ public class Hospital {
             System.out.println("Nenhuma consulta Marcada");
         }else {
             for (int i = 0; i < consultas.size(); i++) {
-                if (consultas.get(i).getMedico().getCrm().equals(medico.getCrm()) && consultas.get(i).getData().equals(data)){
+                if (consultas.get(i).getMedico().getCrm().equals(medico.getCrm()) && consultas.get(i).getDatad().equals(data)){
                     throw new ConsultaIndisponivel("O doutor "+ medico.getNome() +" já possui uma consulta nesse dia"  + "+\n");
                 }
             }
@@ -103,7 +105,7 @@ public class Hospital {
             System.out.println("Nenhuma consulta Marcada");
         }else {
             for (int i = 0; i < cirurgias.size(); i++) {
-                if (cirurgias.get(i).getMedico().getCrm().equals(medico.getCrm()) && cirurgias.get(i).getData().equals(data)){
+                if (cirurgias.get(i).getMedico().getCrm().equals(medico.getCrm()) && cirurgias.get(i).getDatad().equals(data)){
                     throw new ConsultaIndisponivel("O doutor "+ medico.getNome() +" já possui uma cirurgia nesse dia"  + "+\n");
                 }
             }

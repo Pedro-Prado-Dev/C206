@@ -1,22 +1,22 @@
 package Classes;
 
 public class Consulta {
-    private String data;
+    private String datad;
     private Paciente paciente;
     private Medico medico;
 
     public void mostraInfo(){
-        System.out.println("Consulta do paciente "+ paciente.getNome() +" dia " + data + " pelo doutor " + medico.getNome());
+        System.out.println("Consulta do paciente "+ paciente.getNome() +" dia " + datad + " pelo doutor " + medico.getNome());
     }
 
     //getter e setter
 
-    public String getData() {
-        return data;
+    public String getDatad() {
+        return datad;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDatad(String datad) {
+        this.datad = datad;
     }
 
     public Paciente getPaciente() {

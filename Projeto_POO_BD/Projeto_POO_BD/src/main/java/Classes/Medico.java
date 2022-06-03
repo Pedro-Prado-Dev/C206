@@ -1,7 +1,7 @@
 package Classes;
 public class Medico extends Pessoa {
 
-    private String nome ;
+    private String nome;
     private int idade;
     private String especializacao;
     private String cpf;
@@ -10,8 +10,8 @@ public class Medico extends Pessoa {
     public void mostraInfo(){
         System.out.println("Nome: " + nome);
         System.out.println("Idade: " + idade);
-        System.out.println("Cpf: " + cpf);
         System.out.println("Especialização: " + especializacao);
+        System.out.println("Cpf: " + cpf);
         System.out.println("CRM : " + crm + "\n");
     }
 
@@ -22,7 +22,7 @@ public class Medico extends Pessoa {
         return nome;
     }
 
-    public double getIdade() {
+    public int getIdade() {
         return idade;
     }
 

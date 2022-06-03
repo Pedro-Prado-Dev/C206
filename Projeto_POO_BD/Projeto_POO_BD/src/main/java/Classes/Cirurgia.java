@@ -2,13 +2,13 @@ package Classes;
 
 public class Cirurgia {
     private Medico medico;
-    private String data;
+    private String datad;
     private Paciente paciente;
 
     //mostra info
 
     public void mostraInfo(){
-        System.out.println("Cirurgia do paciente "+ paciente.getNome() +" dia " + data + " pelo doutor " + medico.getNome());
+        System.out.println("Cirurgia do paciente "+ paciente.getNome() +" dia " + datad + " pelo doutor " + medico.getNome());
     }
 
     //getter e setter
@@ -20,12 +20,12 @@ public class Cirurgia {
         this.medico = medico;
     }
 
-    public String getData() {
-        return data;
+    public String getDatad() {
+        return datad;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDatad(String datad) {
+        this.datad = datad;
     }
 
     public Paciente getPaciente() {
