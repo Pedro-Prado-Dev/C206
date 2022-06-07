@@ -114,6 +114,9 @@ public class Main {
                     consulta.setDatad(aux1);
                     hospital.marcaConsulta(consulta);
                     aDAO.inserirConsulta(consulta);
+                    if(consulta.isFazerCirurgia() == true){
+                        op = 4;
+                    }
                     break;
 
                 case 4:
@@ -177,8 +180,5 @@ public class Main {
             }
         }
     }
-    /* Menu realiza consulta com booleando falando se vai fazer ou não cirurgia
-    realiza cirurgia com booleano random se a cirurgia foi bem sucedida;
-     */
 
 }

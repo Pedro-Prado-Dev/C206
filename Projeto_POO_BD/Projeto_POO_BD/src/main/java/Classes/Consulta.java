@@ -5,6 +5,8 @@ public class Consulta {
     private Paciente paciente;
     private Medico medico;
 
+    private boolean fazerCirurgia;
+
     public void mostraInfo(){
         System.out.println("Consulta do paciente "+ paciente.getNome() +" dia " + datad + " pelo doutor " + medico.getNome());
     }
@@ -33,5 +35,12 @@ public class Consulta {
 
     public void setMedico(Medico medico) {
         this.medico = medico;
+    }
+
+    public void setFazerCirurgia(boolean fazerCirurgia) {
+        this.fazerCirurgia = fazerCirurgia;
+    }
+    public boolean isFazerCirurgia() {
+        return fazerCirurgia;
     }
 }

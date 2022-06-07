@@ -16,7 +16,10 @@ public class Hospital {
     public Hospital(String nome) {
         this.nome = nome;
     }
+    public static boolean getRandomBoolean() {
+        return Math.random() < 0.2;
 
+    }
 
     //Funções para adicionar
 
@@ -28,7 +31,16 @@ public class Hospital {
         this.pacientes.add(paciente);
     }
     public void marcaConsulta(Consulta consulta){
-        consultas.add(consulta);
+        consulta.setFazerCirurgia(getRandomBoolean());
+        if( consulta.isFazerCirurgia() == true){
+            System.out.println("Precisa fazer cirurgia");
+            consultas.add(consulta);
+        }
+        else{
+            System.out.println("Estátudo bem");
+            consultas.add(consulta);
+        }
+
     }
     public void marcaCirurgia(Cirurgia cirurgia){
         cirurgias.add(cirurgia);
