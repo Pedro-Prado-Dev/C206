@@ -12,7 +12,7 @@ import Exceptions.*;
 
 
 public class Main {
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws PacienteNaoEncontrado, ConsultaIndisponivel {
         Scanner sc = new Scanner(System.in);
         Hospital hospital = new Hospital("Samuel Libaneo");
         boolean flag = true;
@@ -123,7 +123,7 @@ public class Main {
                     Paciente p2 = new Paciente();
                     CirurgiaDAO uDAO = new CirurgiaDAO();
                     Cirurgia cirurgia = new Cirurgia();
-                    System.out.println("Digite o cpf do Paciente para Marcar uma consulta");
+                    System.out.println("Digite o cpf do Paciente para Marcar uma cirurgia");
                     aux2 = sc.nextLine();
                     try {
                         paciente = hospital.procuraPorCpf(aux2);
@@ -132,7 +132,7 @@ public class Main {
                         break;
                     }
                     cirurgia.setPaciente(paciente);
-                    System.out.println("Digite o CRM do Medico que ira realizar a consulta");
+                    System.out.println("Digite o CRM do Medico que ira realizar a cirurgia");
                     aux2 = sc.nextLine();
                     try {
                         medico = hospital.procuraPorCRM(aux2);
@@ -141,10 +141,10 @@ public class Main {
                         break;
                     }
                     cirurgia.setMedico(medico);
-                    System.out.println("Digite uma data para Consulta");
+                    System.out.println("Digite uma data para Cirurgia");
                     aux2 = sc.nextLine();
                     try {
-                        hospital.procuraPorConsulta(aux2, medico);
+                        hospital.procuraPorCirurgia(aux2, medico);
                     } catch (ConsultaIndisponivel e) {
                         System.out.println(e);
                         break;
@@ -164,7 +164,8 @@ public class Main {
                     hospital.mostraInfoConsultas();
                     break;
                 case 8:
-
+                    hospital.mostraInfoCirurgias();
+                    break;
                 case 9:
                     System.out.println("Você saiu ");
                     flag = false;

@@ -12,7 +12,7 @@ public class CirurgiaDAO extends ConnectionDAO {
 
     public boolean inserirCirurgia(Cirurgia cirurgia) {
         connectToDB();
-        String sql = "INSERT INTO Cirurgia (datad) values(?,?,?)";
+        String sql = "INSERT INTO Cirurgia (datad) values(?)";
 
         try {
             pst = con.prepareStatement(sql);

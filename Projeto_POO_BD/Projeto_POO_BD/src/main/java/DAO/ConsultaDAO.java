@@ -12,7 +12,7 @@ public class ConsultaDAO extends ConnectionDAO {
 
     public boolean inserirConsulta(Consulta consulta) {
         connectToDB();
-        String sql = "INSERT INTO Consulta (datad) values(?,?,?)";
+        String sql = "INSERT INTO Consulta (datad) values(?)";
 
         try {
             pst = con.prepareStatement(sql);

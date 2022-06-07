@@ -56,6 +56,13 @@ public class Hospital {
         }
     }
 
+    public void mostraInfoCirurgias(){
+        System.out.println(" ** Cirurgias Marcadas no Hospital " + nome + " **");
+        for (Cirurgia ci: cirurgias) {
+            ci.mostraInfo();
+        }
+    }
+
 
     //Funções de procura
 
