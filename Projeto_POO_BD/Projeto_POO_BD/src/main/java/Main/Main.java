@@ -23,12 +23,11 @@ public class Main {
             System.out.println("1 -> Cadastro de Medico");
             System.out.println("2 -> Cadastro de Paciente");
             System.out.println("3 -> Marcar uma consulta");
-            System.out.println("4 -> Marcar uma cirurgia");
-            System.out.println("5 -> Medicos cadastrados");
-            System.out.println("6 -> Pacientes cadastrados");
-            System.out.println("7 -> Consultas marcadas");
-            System.out.println("8 -> Cirurgias marcadas");
-            System.out.println("9 -> Sair");
+            System.out.println("4 -> Medicos cadastrados");
+            System.out.println("5 -> Pacientes cadastrados");
+            System.out.println("6 -> Consultas marcadas");
+            System.out.println("7 -> Cirurgias marcadas");
+            System.out.println("8 -> Sair");
             int op = sc.nextInt();
 
             switch (op) {
@@ -115,61 +114,38 @@ public class Main {
                     hospital.marcaConsulta(consulta);
                     aDAO.inserirConsulta(consulta);
                     if(consulta.isFazerCirurgia() == true){
-                        op = 4;
+                        Cirurgia cirurgia = new Cirurgia();
+                        CirurgiaDAO uDAO = new CirurgiaDAO();
+                        cirurgia.setMedico(medico);
+                        cirurgia.setPaciente(paciente);
+                        sc.nextLine();
+                        System.out.println("Digite uma data para Cirurgia");
+                        aux1 = sc.nextLine();
+                        try {
+                            hospital.procuraPorCirurgia(aux1, medico);
+                        } catch (ConsultaIndisponivel e) {
+                            System.out.println(e);
+                            break;
+                        }
+                        cirurgia.setDatad(aux1);
+                        hospital.marcaCirurgia(cirurgia);
+                        uDAO.inserirCirurgia(cirurgia);
                     }
                     break;
 
                 case 4:
-                    String aux2;
-                    sc.nextLine();
-                    Medico m2 = new Medico();
-                    Paciente p2 = new Paciente();
-                    CirurgiaDAO uDAO = new CirurgiaDAO();
-                    Cirurgia cirurgia = new Cirurgia();
-                    System.out.println("Digite o cpf do Paciente para Marcar uma cirurgia");
-                    aux2 = sc.nextLine();
-                    try {
-                        paciente = hospital.procuraPorCpf(aux2);
-                    } catch (PacienteNaoEncontrado e) {
-                        System.out.println(e);
-                        break;
-                    }
-                    cirurgia.setPaciente(paciente);
-                    System.out.println("Digite o CRM do Medico que ira realizar a cirurgia");
-                    aux2 = sc.nextLine();
-                    try {
-                        medico = hospital.procuraPorCRM(aux2);
-                    } catch (MedicoNaoEncontrado e) {
-                        System.out.println(e);
-                        break;
-                    }
-                    cirurgia.setMedico(medico);
-                    System.out.println("Digite uma data para Cirurgia");
-                    aux2 = sc.nextLine();
-                    try {
-                        hospital.procuraPorCirurgia(aux2, medico);
-                    } catch (ConsultaIndisponivel e) {
-                        System.out.println(e);
-                        break;
-                    }
-                    cirurgia.setDatad(aux2);
-                    hospital.marcaCirurgia(cirurgia);
-                    uDAO.inserirCirurgia(cirurgia);
-                    break;
-
-                case 5:
                     hospital.mostraInfoMedicos();
                     break;
-                case 6:
+                case 5:
                     hospital.mostraInfoPacientes();
                     break;
-                case 7:
+                case 6:
                     hospital.mostraInfoConsultas();
                     break;
-                case 8:
+                case 7:
                     hospital.mostraInfoCirurgias();
                     break;
-                case 9:
+                case 8:
                     System.out.println("Você saiu ");
                     flag = false;
                     break;
