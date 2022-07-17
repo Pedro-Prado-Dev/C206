@@ -10,7 +10,7 @@ public class Main {
         ArrayList<String>nome = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println("Informe o nome da pessoa " + (i+1));
             nome.add(sc.nextLine());
         }
